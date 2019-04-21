@@ -1,12 +1,24 @@
-
-
 def my_seq(*myfile):
     """
     this function calculates the amount of Guanine and Cytosine contents
     """
     with open(str(myfile[0]), "rU") as f:
-        return f.readlines()[1:]
+        sequ = f.readlines()[1:]
+        myseq = '\n'.join(sequ)
+        return myseq.replace("\n", "")
         
-seq = my_seq("../Drosophila melanogaster chromosome 3R.fasta")
-
-print(seq)
+def gc_content(*sequence):
+        """
+        Returns the ratio of Guanine and Cytosine
+        """
+        i = 0
+        for j in range(len(sequence[0])):
+                if sequence[0][j] is "G" or sequence[0][j] is "C":
+                        i += 1
+        mycontentratio = i/len(sequence[0]) 
+        return mycontentratio
+import time
+a = time.time()
+SEQ = my_seq("../Drosophila melanogaster chromosome 3R.fasta")
+print(gc_content(SEQ))
+print(time.time() - a)
