@@ -1,6 +1,6 @@
 def my_seq(*myfile):
     """
-    this function calculates the amount of Guanine and Cytosine contents
+    this function cleans the blanks between lines
     """
     with open(str(myfile[0]), "rU") as f:
         sequ = f.readlines()[1:]
@@ -15,8 +15,8 @@ def gc_content(*sequence):
         for j in range(len(sequence[0])):
                 if sequence[0][j] is "G" or sequence[0][j] is "C":
                         i += 1
-        mycontentratio = i/len(sequence[0]) 
-        return mycontentratio
+        mycontentratio = (i/len(sequence[0])) * 100
+        return "GC Ratio is: " + str(mycontentratio) + "%"
 import time
 a = time.time()
 SEQ = my_seq("../Drosophila melanogaster chromosome 3R.fasta")
