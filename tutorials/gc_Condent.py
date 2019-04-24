@@ -22,3 +22,26 @@ a = time.time()
 SEQ = my_seq("../Drosophila melanogaster chromosome 3R.fasta")
 print(gc_content(SEQ))
 print(time.time() - a)
+import math
+def calcGcContent(seq, winSize=100000):
+        gcValues = []
+        a = len(seq)%winSize
+        listnumber = math.floor(len(seq)/winSize)
+        for i in range(listnumber):
+                subSeq = seq[i*winSize:(i*winSize)+winSize]      
+                numGc = subSeq.count('G') + subSeq.count('C')
+                value = numGc/float(winSize)
+                gcValues.append(value)
+                if listnumber == i:
+                        subSeq = seq[i*winSize:-1]
+                        numGc = subSeq.count('G') + subSeq.count('C')
+                        value = numGc/float(a)
+                        gcValues.append(value)
+        print(len(gcValues))
+        print(math.floor(len(seq)/winSize))
+        return gcValues
+from matplotlib import pyplot
+gcResults = calcGcContent(SEQ)
+pyplot.title('Drosophila melanogaster GC Content ratio per 100000bp')
+pyplot.plot(gcResults, '--bo')
+pyplot.show()
