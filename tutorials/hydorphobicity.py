@@ -34,6 +34,6 @@ def hydrophobicitySearch(seq, scale, winSize=15):
 
 from Bio import SeqIO
 myseq = SeqIO.read("/home/lumenified/Desktop/information/tutorials/2d0h.fasta.txt", "fasta")#PDB format needs to be done!!
-from matplotlib import pyplot as Huseyin
-Huseyin.plot(hydrophobicitySearch(myseq, GES_SCALE))
-Huseyin.show()
+from matplotlib import pyplot as plt
+plt.plot(hydrophobicitySearch(myseq, GES_SCALE))
+plt.show()
