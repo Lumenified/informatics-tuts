@@ -1,5 +1,3 @@
-import itertools
-import copy
 import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
