@@ -59,14 +59,16 @@ node_positions = {node[0]: (node[1]['X'], -node[1]['Y']) for node in g.nodes(dat
 #print(dict(list(node_positions.items())[0:5]))#previews the first 5 items of positions in position list
 # Define data structure (list) of edge colors for plotting
 #print(list(g.edges(data=True))[2][2])
-print(list(g.edges(data=True))[0][2])
-print(list(g.edges(data=True))[1][2])
-print(list(g.edges(data=True))[2][2])
+#print(list(g.edges(data=True))[0][2])
+#print(list(g.edges(data=True))[1][2])
+#print(list(g.edges(data=True))[2][2])
 my_list = list(g.edges(data=True))[0][2]
-print(dict(my_list)['attr_dict']['color'])
+#print(dict(my_list)['attr_dict']['color'])
 edge_colors = [dict(attr[2])['attr_dict']['color'] for attr in list(g.edges(data=True))]
+###PROBLEMATIC###
 #edge_colors = [e[2]['color'] for e in list(g.edges(data=True))]
-print(edge_colors[0:10])
+###PROBLEMATIC###
+#print(edge_colors[0:10])
 plt.figure(figsize=(8, 6))
 nx.draw(g, pos=node_positions, edge_color=edge_colors, node_size=10, node_color='black')
 plt.title('raph Representation of Sleeping Giant Trail Map', size=15)
