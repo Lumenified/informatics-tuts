@@ -3,7 +3,7 @@ This scripts calculates the repetetiveness through a DNA or
 a Protein sequence
 """
 
-def calcRelativeEntropy(seq, resCodes):
+'''def calcRelativeEntropy(seq, resCodes):
     """
     Calculate a relative entropy (which is the repetetiveness in information tech
     thus an obstacle for variations to have divergency) value for the residues in a 
@@ -13,11 +13,13 @@ def calcRelativeEntropy(seq, resCodes):
     from math import log
     
     N = float(len(seq))
-    base = 1.0/len(resCodes)
+    base = float(1.0/len(resCodes))
     
     prop = {}
     for r in resCodes:
         prop[r] = 0
     for r in seq:
         prop[r] += 1
-    
+    return None
+
+'''
