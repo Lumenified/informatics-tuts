@@ -71,3 +71,7 @@ plt.figure(figsize=(8, 6))
 nx.draw(g, pos=NODE_POSITIONS, edge_color=EDGE_COLORS, node_size=10, node_color='black')
 plt.title('raph Representation of Sleeping Giant Trail Map', size=15)
 plt.show()
+
+#########################################
+#####NOW CHINESE POSTMAN PROBLEM#########
+#########################################
