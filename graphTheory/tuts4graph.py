@@ -1,6 +1,8 @@
 import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
+import itertools as it
+
 
 """
 -NODE1 & NODE2: names of the nodes connected.
@@ -68,10 +70,56 @@ EDGE_COLORS = [dict(attr[2])['attr_dict']['color'] for attr in list(g.edges(data
 ###PROBLEMATIC###
 #print(edge_colors[0:10])
 plt.figure(figsize=(8, 6))
-nx.draw(g, pos=NODE_POSITIONS, edge_color=EDGE_COLORS, node_size=10, node_color='black')
+nx.draw(g, pos=NODE_POSITIONS, edge_color=EDGE_COLORS, node_size=50, node_color='skyblue', widths=40)
 plt.title('raph Representation of Sleeping Giant Trail Map', size=15)
-plt.show()
+#plt.show()
 
 #########################################
 #####NOW CHINESE POSTMAN PROBLEM#########
 #########################################
+
+################
+###odd_nodes####
+################
+#print(g.degree())
+nodes_odd_degree = [v for v, d in list(g.degree()) if d % 2 == 1]
+#print(nodes_odd_degree)
+#print("Number of odd total nodes :{}".format(len(g.node)))
+#print("Number of nodes of odd degree :{}".format(len(nodes_odd_degree)))
+
+odd_node_pairs = list(it.combinations(nodes_odd_degree, 2))
+#print(odd_node_pairs)
+#print(len(odd_node_pairs))
+
+def get_shortest_path_with_dijkstra(graph, pairs, edge_weight_name):
+    """Compute shortest distance between each pair of nodes in a graph. 
+    Return a dictionary keyed on node pairs (tuple).
+    """
+    distances = {}
+
+    for pair in pairs:
+        distances[pair] = nx.dijkstra_path(graph, pair[0], pair[1], weight=edge_weight_name)
+    
+    return distances
+
+odd_node_pairs_shortest_paths = get_shortest_path_with_dijkstra(g, odd_node_pairs, 'distance')
+print(dict(list(odd_node_pairs_shortest_paths.items())[0:10]))
+
+def create_complete_Graph(pair_weights, flip_weights=True):
+    """
+    Create a completely connected graph using a list of vertex pairs and the shortest path distances between them
+    Parameters:
+        pair_weights: list[tuple] from the output of get_shortest_paths_distances
+        flip_weights: Boolean. Should we negate the edge attribute in pair_weights?
+    """
+    g = nx.Graph()
+    for k, v in pair_weights.items():
+        wt_i = -v if flip_weights else v
+        g.add_edge(k[0], k[1], attr_dict={'distance': v, 'weight': wt_i})
+    return g
+
+g_odd_complete = create_complete_Graph(odd_node_pairs_shortest_paths, flip_weights=True)
+
+# Counts
+print('Number of nodes: {}'.format(len(g_odd_complete.nodes())))
+print('Number of edges: {}'.format(len(g_odd_complete.edges())))
