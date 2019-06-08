@@ -1,7 +1,5 @@
 with open("rosalind_hamm.txt") as p:
-    f_seq = ""
-    my_whole_seq = ""
-    my_whole_seq += str(p.read()).replace("\n", "")
+    my_whole_seq = str(p.read()).replace("\n", "")
 
 def Hamming_Calculation(seq):
     counter = 0
