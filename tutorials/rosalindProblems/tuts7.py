@@ -1,7 +1,7 @@
 from scipy.special import comb
 with open("tuts7.txt") as f:
     my_file = str(f.read()).split()
-def MendelFLove(my_array: dict, types = "Phenotype"):
+def MendelFLove(my_array: dict, cross_type = "Phenotype"):
     pop = []
     pop += ["AA" for i in range(int(my_array[0]))]
     pop += ["Aa" for i in range(int(my_array[1]))]
