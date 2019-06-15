@@ -72,7 +72,7 @@ print(MendelFLove(hz_dominant,heterozygote,hz_recessive))
 #########
 def second_edit(t1,t2,t3):
     """
-    Oncelikle optimize edebilmek icin formuluze etmemiz gerekiyor.
+    Oncelikle optimize edebilmek icin formulize etmemiz gerekiyor.
     diyelim ki "k" kadar dominant organizmamiz var ve k-1 kadar 
     dominant organizma ile caprazlayacagiz. Formulumuz 
     "#"  [(k/populasyon)]*[(k-1)/(populasyon-1)]  "#" 
