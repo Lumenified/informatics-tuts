@@ -1,7 +1,9 @@
 with open("rosalind_hamm.txt") as p:
     my_whole_seq = str(p.read()).replace("\n", "")
 
+print(my_whole_seq.format())
 def Hamming_Calculation(seq):
+    
     counter = 0
     for i in range(int(len(seq)/2)):
         if seq[i]!=seq[(int(len(seq)/2))+i]:
