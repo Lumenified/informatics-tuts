@@ -1,8 +1,6 @@
 with open("tuts7.txt") as f:
     my_file = [int(i) for i in str(f.read()).split()]
-    d = my_file[0]
-    h = my_file[1]
-    r = my_file[2]
+
 
 def second_edit(pop: dict):
     t2,t3,p = pop[1],pop[2],pop[0]+pop[1]+pop[2]
