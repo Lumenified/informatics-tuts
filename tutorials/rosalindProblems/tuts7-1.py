@@ -12,7 +12,6 @@ def MendelFzero(dominant: int, hetero: int, recessive: int):
     pop += ["AA" for i in range(dominant)]
     pop += ["Aa" for i in range(hetero)]
     pop += ["aa" for i in range(recessive)]
-    my_individuals = 0
     cross = []
     j = 0
     for i in pop:
