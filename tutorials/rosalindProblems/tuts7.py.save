@@ -76,7 +76,7 @@ def second_edit(t1,t2,t3):
     diyelim ki "k" kadar dominant organizmamiz var ve k-1 kadar 
     dominant organizma ile caprazlayacagiz. Formulumuz 
     "#"  [(k/populasyon)]*[(k-1)/(populasyon-1)]  "#" 
-    olurdu. Peki resesiflerden toplam olasilik 1'i cikartirsak 
+    olurdu. Peki toplam olasilik olan 1'den resesif ihtimalini cikartirsak 
     nasil olur ?
     O zaman:
     "#"  1 - [( h*r + .25*h*(h-1) + r*(r-1) ) / ( p*(p-1) )]  "#"
